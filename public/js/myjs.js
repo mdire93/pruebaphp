@@ -4,12 +4,12 @@ $(document).ready(
         
         var data = $(this).attr('value');
         var path= $(this).attr('data-path');
+        $('.'+data+'').remove();
         $.ajax({
             method:'POST',
             url: path,
             data: {id: data },
-            susscess: function (){
-
+            success: function (){
             }
         });
     }),
@@ -22,9 +22,7 @@ $(document).ready(
            method:'GET',
             url: path,
             data: {task: task, category:category},
-            susscess: function (){
-
-            }
+         
         })
     })
 

@@ -33,21 +33,21 @@
                         </thead>
                         {% for task in tasks %}
                         <tbody>
-                        <tr class="line">
+                        <tr class=" {{task.id}}">
                             <td class="cell"> {{task.task}}</td>
                             <td class="cell text-center"><button>{{task.category}}</button> </td>
                             <td class="cell text-center"> 
-                                <!--
-                                    codigo para ajax 
+                                <!--Codigo con Ajax-->
                                 <button class="delete_item" 
                                 value="{{ task.id }} " data-path= "{{ path('deleteTask', {id: task.id} )}}">
                                     <i class="fa fa-times delete" aria-hidden="true"></i>
-                                </button>-->
-                                <button>
+                                </button>
+                                <!--
+                                    <button>
                                     <a href= "{{ path('deleteTask', {id: task.id} )}}">
                                     <i class="fa fa-times delete" aria-hidden="true"></i>
                                     </a>
-                                </button>
+                                </button>-->
                             </td>
                         </tr>
                         </tbody>
