@@ -2,9 +2,9 @@ $(document).ready(
     
     $('.delete_item').on('click', function(){
         
-        var data = $(this).attr('value');
-        var path= $(this).attr('data-path');
-        var element=$('.'+data+'');
+        let data = $(this).attr('value');
+        let path= $(this).attr('data-path');
+        let element=$('.'+data+'');
         $.ajax({
             method:'POST',
             url: path,
@@ -17,8 +17,9 @@ $(document).ready(
     }),
 
     $('.new').on('click', function(){
-       var task = $('.task').text();
-       var category= $('.category').text();
+        let task = $('.task').text();
+        let category= $('.category').tex();
+        let path= $(this).attr('data-path');
        alert(task);
        $.ajax({
            method:'GET',
