@@ -4,12 +4,14 @@ $(document).ready(
         
         var data = $(this).attr('value');
         var path= $(this).attr('data-path');
-        $('.'+data+'').remove();
+        var element=$('.'+data+'');
         $.ajax({
             method:'POST',
             url: path,
             data: {id: data },
             success: function (){
+
+                element.remove();
             }
         });
     }),
