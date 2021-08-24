@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <!-- Bootstrap CSS -->
+        
+        <link href="{{ asset ('css/bootstrap.css') }}" rel="stylesheet" >
+        <link href="{{ asset ('estilo.css') }}" rel="stylesheet" >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+         <script src= "{{ asset ('js/jquery-3.6.0.min.js')}}"></script>
+        <title>{% block title %}PRINCIPAL!{% endblock %}</title>
+        {% block stylesheets %}
+        
+        {% endblock %}
+    </head>
+    <body> 
+        <h2>Gestor de tareas</h2>
+                <hr>
+                    <form action=" {{ path('new')}}">
+                        <input type="text" placeholder="Nueva tarea..." name="task" id="task"> 
+                        <input type="checkbox" name="category" id="category" value="1"> PHP</input>
+                        <input type="checkbox" name="category" id="category" value="2"> JavaScript</input>
+                        <input type="checkbox" name="category" id="category" value="3"> CSS</input>
+                        <!--A este boton se le añadiria la clase new para añadirle el js y el ajax-->
+                        <button data-path= "{{path('new')}}" name="ok"> Añadir</button>
+                    </form>
+
+                    <table name="table">
+                        <thead>
+                            <th class="cell">Tarea</th>
+                            <th class="cell">Categorías</th>
+                            <th class="cell">Acciones</th>
+                        </thead>
+                        {% for task in tasks %}
+                        <tbody>
+                        <tr class="line">
+                            <td class="cell"> {{task.task}}</td>
+                            <td class="cell"> {{task.category}}</td>
+                            <td class="cell text-center"> 
+                                <!--
+                                    codigo para ajax 
+                                <button class="delete_item" 
+                                value="{{ task.id }} " data-path= "{{ path('deleteTask', {id: task.id} )}}">
+                                    <i class="fa fa-times delete" aria-hidden="true"></i>
+                                </button>-->
+                                <button>
+                                    <a href= "{{ path('deleteTask', {id: task.id} )}}">
+                                    <i class="fa fa-times delete" aria-hidden="true"></i>
+                                    </a>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+        <script src="{{ asset ('js/myjs.js')}}"></script>
+       
+        {% endblock %}
+    </body>
+</html>

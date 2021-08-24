@@ -1,0 +1,18 @@
+          
+        body {
+            margin-top: 3rem;
+            max-width: 50rem;
+            margin-left: 4rem;
+        }
+        h2{
+            text-align: left;
+        }
+            .cell {
+                width: 15rem;
+                border:1px solid;
+            }
+        
+            .delete {
+                color:red;
+            }
+            
